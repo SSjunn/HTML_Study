@@ -21,9 +21,106 @@
         #p4{
             text-align: justify;
         }
+        .fontSize{
+            font-size: 31px;
+            font-style: italic;
+            font-weight: 700; /*400이 보통, 700 굵게*/
+            font-variant: small-caps; /* 소문자를 작은 대문자로 표기 */
+        }
+        /*
+        여러 속성을 하나로 묶어서 표현
+
+        */
+        /* 
+            한 번에 전부 다 쓸 수 있다 
+            font : font-style font-variant font-weight font-size/line-height font-family
+        */
+        #p1{
+            font : normal normal 700 30px/200px '굴림';
+            text-decoration: line-through;
+        }
+        div{
+            width: 300px;
+            border:#000000 1px solid;
+            overflow: hidden; /* 영역보다 넘치는 경우 숨김*/
+            white-space: nowrap; /*내용이 길어져도 줄바꿈 안돼*/
+        }
+        .over1 {
+            text-overflow: clip; /*기본값 : 넘치는 텍스트 숨김 */
+        }
+        .over2 {
+            text-overflow: ellipsis; /*넘치면 뒤에 ...만들기 */
+        }
+        .baseballTeam{
+            list-style-type: none;
+            /* list-style-image: url('img/potatoBaduck.png'); */
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            margin: 0;
+        }
+        table{
+            caption-side: bottom;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td, th{
+            border: 1px dotted black;
+            padding: 10px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+        <table>
+            <h2>상품 구성</h2>
+        <caption>선물용과 가정용 상품 구성</caption>
+        <colgroup>
+            <col style="background-color: #eee;">
+            <col>
+            <col style="width: 150px;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>개수</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan ="2">선물용</td><!--행을 합쳐서 2칸으로 만들어.-->
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>35,000원</td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>52,000원</td>
+            </tr>
+            <tr>
+                <td rowspan ="2">가정용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>30,000원</td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td colspan="2">품절</td> <!--열 2칸을 합쳐서 만들어-->
+            </tr>
+        </tbody>
+    </table>
+    <ol class="baseballTeam">
+        <li>LG트윈스</li>
+        <li>롯데자이언츠</li>
+        <li>SSG랜더스</li>
+    </ol>
+    <div class="over1">안녕하세요 저는 홍길동입니다.  만나서 반갑습니다</div>
+    <div class="over2">안녕하세요 저는 홍길동입니다.  만나서 반갑습니다</div>
+    <div class="fontSize">안녕하세요, This is My room</div>
     <p id="p1">안녕하세요</p>
     <p id="p2">안녕하세요</p>
     <p id="p3">안녕하세요</p>

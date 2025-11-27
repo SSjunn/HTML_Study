@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+            border: 10px solid #000;
+        }
+        .box1 {
+            background-color: red;
+            box-sizing: content-box;
+            /* display: none; 화면에서 사라지네? */
+            /* visibility: hidden; 이건 box 가 안보이는데 자리는 차지하네? 오호 자리를 차지 했는데 개발자 모드에서는 안뜨네? */
+        }
+        .box2 {
+            background-color: yellow;
+            box-sizing: border-box;
+        }
+        /* 
+        밑에 #target 이 안먹는데? inline 태크는 안먹는데 
+        인라인 태그는 width,height 적용 안됨, margin은 좌/우 만 가능해
+        */
+        #target {
+            display: inline-block;
+            width: 300px;
+            height: 100px;
+            background-color: gray;
+            margin: 10px;
+        }
+        #radius{
+            border: 1px solid #ececec;
+            background-color: #ececec;
+            border-radius: 100px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="radius"></div>
+    <span>안녕</span>
+    <span id="target">나는</span>
+    <span>김바덕</span>
+    <div class="box1"><b>box1</b></div>
+    <div class="box2"><b>box2</b></div>
+</body>
+</html>

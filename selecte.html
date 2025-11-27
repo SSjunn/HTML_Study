@@ -21,7 +21,7 @@
 
     **선택자 종류**
 
-    - 전체 ; *
+    - 전체 : *
     - 태그
     - 아이디 : #
     - 클래스 : .
@@ -46,6 +46,7 @@
     /* #target {
         color: blue;   
     } */
+     /*아이디와 클래스는 큰 차이가 없다*/
     /*
         클래스 선택자 기호는 .
         class는 문서내에서 여러개 존재
@@ -67,6 +68,12 @@
 
     div > span : div 바로 밑에 span
     div span : div 밑에 모든 span
+
+    자식 : >
+
+    둘 다 : ,
+
+    딱 붙어 있으면 두 클래스가 둘 다 적용?
     */
     /* div > span{
         color : green;
@@ -84,7 +91,7 @@
     가상 클래스 (위치)
     몇번째 요소
     */
-    li:nth-child(2){
+    .food > li:nth-child(2){
         color:red;
     }
     p#target{
@@ -98,10 +105,19 @@
     *{
         font-family: "Nanum Pen Script", cursive;
     }
+    .redColor{
+        color: blue;
+    }
+    .blackBg{
+        background-color: black;
+    }
+    .redColor.blackBg{
+        text-align: center;
+    }
 </style>
 </head>
 <body>
-    <h1 class="redColor">제목</h1>
+    <h1 class="redColor blackBg">제목</h1> <!--h1 태그에는 2개의 클래스가 존재를 한다-->
     <p class="redColor">내용 1</p>
     <p id="target">내용 2</p>
     <p>내용 3</p>
@@ -113,7 +129,7 @@
             <span>안녕하세용!</span>
         </p>
     </div>
-    <ul>
+    <ul class="food">
         <li>후라이드치킨</li>
         <li>양념치킨</li>
         <li>마늘치킨</li>
