@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기초 레이아웃 실습</title>
+  <style>
+    *{
+        box-sizing: border-box;
+    }
+    .wrap{
+        width: 1000px;
+        margin: 0 auto;
+    }
+    .header{
+       padding: 40px 0px;
+       text-align: center;
+       background-color: #ececec;
+       border: 1px solid #000;
+    }
+    .leftmenu{
+        float: left;
+        width: 30%;
+        padding: 100px 0px;
+        text-align: center;
+       background-color: #ececec;
+       border: 1px solid #000;
+
+    }
+    .content{
+       width: 70%;    
+       padding: 100px 0px;
+       text-align: center;
+       background-color: #ececec;
+       border: 1px solid #000;
+       float: left;
+    }
+    .footer{
+        clear: both; /*.leftmenu 와 .content를 float:left 를 해주게 되면 붕 뜨게 되니까 그걸 지워준다.*/
+       padding: 30px 0px;
+       text-align: center;
+       background-color: #ececec;
+       border: 1px solid #000;
+    }
+    .menu{
+        height: 40px;
+    }
+    .menu > ul {
+        margin: 0;
+        padding: 0;
+    }
+    .menu > ul > li{
+        list-style-type: none;
+        background-color: #ececec;
+        border: 1px solid #000;
+        width: 25%;
+        height: 40px;
+        text-align: center;
+        line-height: 40px; /*이건 높이만큼 해서 하는거야*/
+        float: left;
+    }
+    /*가상 선택자*/
+    .menu > ul > li:hover{
+        background-color: white;
+        cursor: pointer;
+    }
+    /* .menu > ul > li > a:visited{
+        color: blue;
+    } */
+  </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">HEADER</div>
+        <div class="menu">
+            <ul>
+                <li><a href="form.html">MENU1</a></li>
+                <li>MENU2</li>
+                <li>MENU3</li>
+                <li>MENU4</li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="leftmenu">SUBMENU</div>
+            <div class="content">CONTENT</div>
+        </div>
+        <div class="footer">FOOTER</div>
+    </div>
+</body>
+</html>

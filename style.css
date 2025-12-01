@@ -1,0 +1,21 @@
+        /*pc 환경*/
+        body {
+            background-color: black;
+        }
+        /* 태블릿 */
+        @media screen and (max-width:1024px) {
+            body{
+                background-color: gray;
+            }
+        }
+        /* 모바일 */
+        @media screen and (max-width:768px) {
+            body{
+                background-color: green;
+            }
+        }
+        @media screen and (max-width:480px) {
+            body{
+                background-color: yellow;
+            }
+        }
