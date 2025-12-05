@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        /*JS에서 들었던 방법 자동 번호 매기기 1*/
+        /*
+        $(function(){
+            $(".btn").click(function(){
+                //console.log(this); // 이거로 로그 체크 해보면 버튼3이라고 찍혀
+                const n = $(".btn").index(this)+1;
+                alert(`버튼${n} 을 틀릭!!`);
+            });
+        });
+        */
+        /* 자동 번호 매기기 2*/
+        $(function(){
+            $(".btn").click(function(){
+                console.log(this);
+                // let name = this.innerText;
+                let name =$(this).text(); //jquery 방법
+                console.log(name);
+                alert(name);
+            });
+            /* 버튼을 끄는 방법 */
+            $('.off').click(function(){
+                $('.btn').off('click');
+            });
+        });
+
+        // 내가 생각한 방법
+        /*
+        $(function(){
+            $("#kor,#eng,#math").on("input", function(){
+                const n =$("#kor,#eng,#math").index(this)+1;
+                console.log($(this).val());
+
+                const kor = Number($("#kor").val());
+                const eng = Number($("#eng").val());
+                const math = Number($("#math").val());
+
+                const sum = kor + eng + math;
+                $("#sum").val(sum);
+
+                const avg = sum / 3;
+                $("#avg").val(avg.toFixed(2)); //소수점 2자리까지 출력
+            });
+        });
+        */
+
+        $(function(){
+            $(".score").on("input", function(){
+                let sum = 0;
+
+                $(".score").each(function(){
+                    sum += Number($(this).val());
+                });
+
+                $("#sum").val(sum);
+                $("#avg").val((sum / 3).toFixed(2));
+            });
+        });
+
+        
+    </script>
+</head>
+<body>
+    <!-- class 로 만들어서 script 하나로 모든 버튼에 이벤트 사용 -->
+    <button class="btn">버튼1</button>
+    <button class="btn">버튼2</button>
+    <button class="btn">버튼3</button>
+    <button class="btn">버튼4</button>
+    <button class="off">이벤트 끄기</button>
+    <hr>
+    <!-- 국어/영어/수학 점수를 입력할때 마다 합계/평균 구해서 출력 하기 -->
+    <!-- 내가 생각한 방법 -->
+<!--
+    국어 : <input type="text" id="kor" value=""><br>
+    영어 : <input type="text" id="eng" value=""><br>
+    수학 : <input type="text" id="math" value=""><br>
+-->
+
+    국어 : <input type="text" class="score"><br>
+    영어 : <input type="text" class="score"><br>
+    수학 : <input type="text" class="score"><br>
+
+    합계 : <input type="text" id="sum"><br>
+    평균 : <input type="text" id="avg"><br>
+</body>
+</html>
