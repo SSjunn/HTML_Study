@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="heading">에디오피아 게뎁</h1>
+        <img src="img/cat1.jfif" id="cat">
+    </div>
+    <script>
+        let heading = document.querySelector('#heading');
+        let cat = document.querySelector('#cat');
+        // 이미지1 -> 이미지2, 이미지2 -> 이미지1
+        heading.onclick = () => heading.innerHTML = '추천! 오늘의 커피';
+    //     cat.onclick = () => {
+    //     if (cat.src.includes('cat1.jfif')) {      // 현재 cat1이면
+    //         cat.src = 'img/cat2.jfif';            // cat2로 변경
+    //     } else if(cat.src.includes('cat2.jfif')) {
+    //         cat.src = 'img/cat3.jfif';            // cat1로 다시 변경
+    //     }else{
+    //         cat.src = 'img/cat1.jfif';            // cat1로 다시 변경
+    //     }
+    // };
+    let n =2
+    cat.onclick = (e) =>{
+        console.log(e); // 이벤트 객체
+        console.log(this); // 익명함수: 이벤트가 일어난객체, 화살표 함수:window 객체
+        cat.src = `img/cat${n}.jfif`;
+        n++
+        if(n>3) n=1;
+    }
+    </script>
+</body>
+</html>

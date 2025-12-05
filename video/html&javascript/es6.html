@@ -1,0 +1,69 @@
+<script>
+    // 템플릿 문자열
+    // 전개 연산
+    let arr = [1,2,3];
+    let arr2 = arr; // 같은 주소
+    console.log(arr == arr2);
+    let arr3 = [...arr]; // [1,2,3]
+    console.log(arr == arr3); // 다른 주소
+
+    // arr.push(4);
+    // console.log(arr);
+    let arr4 = [...arr,4]; // 새로운 주소
+    console.log(arr4);
+
+    let obj = {a:1, b:2};
+    // obj.c = 3;
+    // console.log(obj);
+    let obj2 = {...obj, c:3}; //새로운 주소
+    console.log(obj2);
+    // 값이 변경
+    //obj2.b = 4; 이거는 Spring 에서 값을 읽지 못한다.
+    obj2 = {...obj2, b:4};
+    console.log(obj2); // 이건 값을 읽어
+
+    // 객체 확장 표현식
+    // obj.name = '홍길동';
+    // obj['name'] = '홍길동';
+    let propertyName = 'name';
+    // obj[propertyName] = '홍길동';
+    // obj.propertyName = '홍길동';  // 이건 안돼 name으로 들어가지는게 아니라 propertyName 으로 들어가짐
+    console.log(obj);
+    // 새로운 객체 생성
+    let obj3 = {
+        a : 1,
+        a : 2,
+        [propertyName] : '홍길동'   // 무조건 [ ] 가 필요하다.
+    };
+    console.log(obj3);
+    
+    // 구조분해할당
+    let arr5 = [1,2];
+    let a = arr[0];
+    let b = arr[1];
+    console.log(a,b);
+    let [a1, b1] = arr5; // 구조분해할당    //기준 : 배열일때는 (순서)가 중요하다
+    console.log(a1,b1);
+
+    let member = {
+        name : '홍길동',
+        age : 20,
+        email : 'seo@gmail.com'
+    };
+    let{name, age, email} = member; // 구조적으로 분해해서 할당   //기준 : 속성명으로 해서 값을 담는다.
+    console.log(name, age, email)
+
+    // 속성명:값 => 이거 그냥 name, age email 적어도 그냥 값을 알아서 넣어준다.
+    let test = {name : name, age:age, email:email};
+    console.log(test);
+
+    //클래스
+    // 화살표 함수
+</script>
+<script src="es6.js"></script>
+<script type="module">
+    import xyz, {func1, func2} from './es6.js';
+    func1();
+    func2();
+    // func3();   // 이거는 error 가 난다.
+</script>

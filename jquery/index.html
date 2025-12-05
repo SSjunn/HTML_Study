@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!--무조건 인터넷이 접속되어야 한다. 인터넷 없이 하고 싶으면 근야 jquery 만들어서 하면 됌-->
+    <script>
+        // 선택자
+        window.onload = function(){
+            // $("*").css('color','blue');
+            $("h1").css('color','blue');
+            
+            //jQeury 방식
+            console.log($("ul > li"));
+            $("ul > li").each(function(i,e){
+                console.log(e.innerHTML);
+            });
+            // JavaScript 방식
+            let  elems = document.querySelectorAll('ul > li');
+            elems.forEach((e,i)=>{
+                console.log(e.innerHTML);
+            });
+            
+            //jQeury 방식 : 작업성 측면에서는 효과가 좋다.
+            $("ul").append("<li>Spring</li>");
+            // JavaScript 방식
+            let spring = document.createTextNode("Spring");
+            let liElem = document.createElement("li");
+            liElem.appendChild(spring);
+            let ulElem = document.querySelector("ul");
+            ulElem.appendChild(liElem);
+        };
+    </script>
+</head>
+<body>
+    <h1>안녕하세요</h1>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+    </ul>
+</body>
+</html>

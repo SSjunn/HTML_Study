@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    #subject {
+        padding: 5px;
+        height: 30px;
+        width: 300px;
+        border: 2px solid #333;
+        box-sizing: border-box; /* padding과 border를 안쪽 포함 */
+    }
+
+    button {
+        vertical-align: middle;
+        padding: 5px 13px;
+        height: 30px;
+        border: 2px solid #333;
+        border-radius: 0;
+         background-color: black;   /* 배경 블랙 */
+        color: white;              /* 글씨 화이트 */
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>Web Programming</h1>
+    <div>공부할 주제를 기록해 보세요!!</div>
+    
+    <form action="">
+        <!-- <label for="subject" class="hidden">주제</label> -->
+        <input type="text" id="subject" autofocus>
+        <button>추가</button>
+    </form>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+        <li>등등이 존재를 한다.</li>
+    </ul>
+    <hr>
+    <ul id="itemList">
+        <script>
+            function newRegister() {
+                const subject = document.querySelector("#subject");
+                const value = subject.value.trim();
+                if (!value) return;
+                
+                console.log(value);
+
+                const itemList = document.querySelector("#itemList");
+
+                // 1. 기존 항목 중 동일한 텍스트를 가진 <li> 찾기
+                let exists = null;
+                const items = itemList.querySelectorAll("li");
+
+                items.forEach(li => {
+                    if (li.textContent.trim().toLowerCase() === value.toLowerCase()) {
+                        exists = li;
+                    }
+                });
+
+                // 2. 이미 존재하면 → 그 항목을 맨 위로 이동
+                if (exists) {
+                    itemList.insertBefore(exists, itemList.firstChild);
+                } 
+                else {
+                    // 3. 존재하지 않으면 → 새 <li> 만들어서 맨 위에 추가
+                    const newItem = document.createElement("li");
+                    newItem.textContent = value;
+                    itemList.insertBefore(newItem, itemList.firstChild);
+                }
+
+                subject.value = "";
+            }
+            document.addEventListener("DOMContentLoaded",function(){
+                const button = document.querySelector("button");
+                button.addEventListener("click",function(){
+                    event.preventDefault();
+                    newRegister();
+                });
+            });
+        </script>
+    </ul>
+    
+</body>
+</html>
